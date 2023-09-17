@@ -6,7 +6,7 @@ import { join } from "path/posix"
  */
 const remoteChannelPath = channel => {
   switch (channel) {
-    case "prerelease": return "insider"
+    case "prerelease": return "outsider"
     case "stable":     return "."
   }
 }

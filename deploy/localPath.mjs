@@ -6,7 +6,7 @@ import { join } from "path"
  */
 export const getLocalPath = channel => {
   switch (channel) {
-    case "prerelease": return join("dist", "insider")
+    case "prerelease": return join("dist", "outsider")
     case "stable":     return join("dist")
   }
 }

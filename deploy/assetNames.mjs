@@ -4,7 +4,7 @@
  */
 const channelSuffix = channel => {
   switch (channel) {
-    case "prerelease": return "Insider"
+    case "prerelease": return "insider"
     case "stable":     return ""
   }
 }

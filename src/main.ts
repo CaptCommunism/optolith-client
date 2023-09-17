@@ -12,7 +12,7 @@ import { existsFile } from "./System/IO"
 
 remote.initialize ()
 
-app.setAppUserModelId ("lukasobermann.optolith")
+app.setAppUserModelId ("captcommunism.optolith")
 
 const isUpdaterEnabled = autoUpdater.isUpdaterActive ()
 
@@ -21,16 +21,19 @@ ipcMain.on (IPCChannels.IsUpdaterEnabled, event => {
 })
 
 const setDerivedUserDataPath = async () => {
-  const isPrerelease = prerelease (app.getVersion ()) !== null
+    const isPrerelease = prerelease(app.getVersion()) !== null;
 
-  const userDataPath =
-    path.join (app.getPath ("appData"), isPrerelease ? "Optolith Insider" : "Optolith")
+    const userDataPath = path.join(app.getPath("appData"), "Optolith Outsider");
 
-  if (!await existsFile (userDataPath)) {
-    await promises.mkdir (userDataPath)
-  }
+    // Protokollieren Sie den Wert von isPrerelease und den generierten userDataPath
+    console.log("isPrerelease:", isPrerelease);
+    console.log("userDataPath:", userDataPath);
 
-  app.setPath ("userData", userDataPath)
+    if (!await existsFile(userDataPath)) {
+        await promises.mkdir(userDataPath);
+    }
+
+    app.setPath("userData", userDataPath);
 }
 
 const createWindow = async () => {
@@ -87,7 +90,7 @@ const createWindow = async () => {
       slashes: true,
     }))
 
-    // mainWindow.webContents.openDevTools ()
+    mainWindow.webContents.openDevTools ()
 
     console.log ("main (window): Show window")
 

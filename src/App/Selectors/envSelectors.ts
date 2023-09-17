@@ -25,4 +25,4 @@ export const isPrerelease = !isStable
  *
  * appended with the name of the app.
  */
-export const user_data_path = remote .app .getPath ("userData")
+export const user_data_path = remote.app.getPath("userData")
